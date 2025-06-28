@@ -1,0 +1,55 @@
+<div class="container">
+  <div class="col">
+    <h1>Encrypt text</h1>
+
+    <div class="input-field">
+      <label for="inputText" >Text to encrypt</label>
+      <textarea name="inputText" id="inputText" [(ngModel)]="text"></textarea>
+    </div>
+
+    <div class="input-field">
+
+      <label for="masterKey" >Master key</label>
+      <input type="text" id="masterKey" [(ngModel)]="masterKey">
+    </div>
+
+    <div class="input-field">
+      <label for="iv">IV (base64)</label>
+      <div class="row">
+        <input type="text" id="iv" [(ngModel)]="iv">
+        <button (click)="randomIV()">Random IV</button>
+      </div>
+      <small>min 12 byte</small>
+    </div>
+
+    <div class="input-field">
+      <label for="iv">Salt (base64)</label>
+      <div class="row">
+        <input type="text" id="iv" [(ngModel)]="salt">
+        <button (click)="randomSALT()">Random SALT</button>
+      </div>
+      <small>min 16 byte</small>
+    </div>
+    
+    
+    
+    
+    
+    <button (click)="cryptText()" class="large">Encrypt</button>
+  </div>
+  <div class="col">
+
+    <h1>Decrypt text</h1>
+    <div class="input-field">
+      
+      <label for="cryptedText">Text to decrypt</label>
+      <textarea name="cryptedText" id="cryptedText" [(ngModel)]="encryptedText"></textarea>
+  
+    </div>
+    
+    <button (click)="decryptText()" class="large">Decrypt</button>
+    <p>{{decryptedText}}</p>
+
+  </div>
+  
+</div>
